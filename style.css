@@ -3,9 +3,48 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-#randomColor {
-  width: 300px;
-  height: 170px;
-  border: 1px solid black;
+html {
+  font-size: 62.5%;
+  font-family: 'Quicksand', sans-serif;
+}
+main {
+  font-size: 1.6rem;
+  display: flex;
+  width: 100%;
+  height: 95vh;
+  justify-content: center;
+  background-color: blue;
+}
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 0;
+  background-color: rgba(255, 255, 255, 0.446);
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+footer {
+  width: 100%;
+  height: 5vh;
+  font-size: 1.3rem;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  color: whitesmoke;
+}
+.net {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.net a {
+  width: 21px;
+  height: 21px;
+}
+.net a img {
+  width: inherit;
+  height: inherit;
 }
