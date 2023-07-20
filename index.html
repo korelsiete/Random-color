@@ -4,12 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Picker Random Color</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="randomColor"></div>
-    <button id="btnChange">Cambiar</button>
+    <main id="bgRandom">
+      <section class="principal">
+        <div class="title">
+          <h1>RandomColor</h1>
+        </div>
+        <div class="numberHex">
+          <p id="newHex">#FF00FF</p>
+        </div>
+        <button id="btnChange">Cambiar</button>
+      </section>
+    </main>
+    <footer>
+      <p>Stefano Pajita</p>
+      <span>2023</span>
+      <div class="net">
+        <a href="">
+          <img src="./public/github.svg" alt="Github" />
+        </a>
+        <a href="">
+          <img src="./public/twitter.svg" alt="Twitter" />
+        </a>
+        <a href="">
+          <img src="/public/linkedin.svg" alt="LinkedIn" />
+        </a>
+      </div>
+    </footer>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
