@@ -16,20 +16,24 @@ function randomColorHex() {
   }
   return random;
 }
-function blackOrWhite() {
-  let count = 0;
-  for (let i = 1; i < randomHex.length; i++) {
-    if (randomHex[i] <= 7) count++;
-  }
-  return count > 2 ? "#fff" : "#000";
+function colorContrast(color) {
+  const arrayColor = color.toUpperCase().split("");
+  if (arrayColor.includes("#")) arrayColor.shift();
+
+  let Hex = { A: 10, B: 11, C: 12, D: 13, E: 14, F: 15 };
+  let [x, , y, , z] = arrayColor;
+
+  let clarity = (Hex[x] || x * 1) + (Hex[y] || y * 1) + (Hex[z] || z * 1);
+  return clarity > 22 ? "#000" : "#FFF";
 }
 
 btnChange.addEventListener("click", () => {
   randomHex = randomColorHex();
-  colorLetter = blackOrWhite();
+  colorLetter = colorContrast(randomHex);
   fondo.setAttribute("style", `background-color: ${randomHex}`);
   newHex.textContent = randomHex;
   console.log(randomHex);
+  console.log(colorLetter);
 });
 
 btnSave.addEventListener("click", () => {
