@@ -1,6 +1,7 @@
 const fondo = document.querySelector("#bgRandom");
 const btnChange = document.querySelector("#btnChange");
 const btnSave = document.querySelector("#saveColor");
+const btnSearch = document.querySelector("#search");
 const newHex = document.querySelector("#newHex");
 const colorContainer = document.querySelector("#colorsSaved");
 
@@ -26,27 +27,37 @@ function colorContrast(color) {
   let clarity = (Hex[x] || x * 1) + (Hex[y] || y * 1) + (Hex[z] || z * 1);
   return clarity > 22 ? "#000" : "#FFF";
 }
+function paintColor(valorOfColor) {
+  randomHex = valorOfColor;
+  fondo.setAttribute("style", `background-color: ${randomHex}`);
+  newHex.value = randomHex;
+}
 
 btnChange.addEventListener("click", () => {
-  randomHex = randomColorHex();
-  colorLetter = colorContrast(randomHex);
-  fondo.setAttribute("style", `background-color: ${randomHex}`);
-  newHex.textContent = randomHex;
+  paintColor(randomColorHex());
   console.log(randomHex);
-  console.log(colorLetter);
+});
+
+btnSearch.addEventListener("click", () => {
+  if (randomHex === newHex.value) return;
+  paintColor(newHex.value);
+  console.log(randomHex);
 });
 
 btnSave.addEventListener("click", () => {
-  if (!saveColors.includes(randomHex)) {
-    saveColors.push(randomHex);
+  let color = newHex.value;
+  colorLetter = colorContrast(color);
+  if (!saveColors.includes(color)) {
+    if (randomHex !== color) paintColor(color);
+    saveColors.push(color);
     colorContainer.innerHTML += `
-    <span style="
-    background-color:${randomHex};
-    padding:3px 5px;
-    border-radius: 6px;
-    color: ${colorLetter};">
-    ${randomHex}
-    </span>`;
+      <span style="
+      background-color:${color};
+      padding:3px 5px;
+      border-radius: 6px;
+      color: ${colorLetter};">
+      ${color}
+      </span>`;
     console.log(saveColors);
   }
 });
