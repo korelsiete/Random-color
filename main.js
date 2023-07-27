@@ -78,6 +78,7 @@ btnSave.addEventListener("click", () => {
         padding: 0px 3px;
         height: fit-content;
         margin-left: 2px;
+        cursor: pointer;
         "
         onclick="deletePos('${color}')"
         >×</button>

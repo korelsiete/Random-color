@@ -21,23 +21,33 @@
           <h1>Random Color</h1>
         </div>
         <div class="numberHex">
-          <input type="text" id="newHex" value="FBFAF0" />
-          <button id="search">🔍</button>
+          <input
+            type="text"
+            id="newHex"
+            value="FBFAF0"
+            minlength="4"
+            maxlength="7"
+          />
+          <button id="search">
+            <img src="./public/lookUp.svg" alt="Lupa" />
+          </button>
         </div>
-        <button id="btnChange">PICK</button>
-        <button id="saveColor">Guardar</button>
+        <div>
+          <button id="btnChange" class="actionBoton">PICK</button>
+          <button id="saveColor" class="actionBoton">SAVE</button>
+        </div>
         <div id="colorsSaved" style="display: none"></div>
       </section>
     </main>
 
     <footer>
-      <p>Stefano Pajita</p>
+      <p>korels7</p>
       <span>2023</span>
       <div class="net">
-        <a href="">
+        <a href="https://github.com/korelss7">
           <img src="./public/github.svg" alt="Github" />
         </a>
-        <a href="">
+        <a href="https://twitter.com/korelss7">
           <img src="./public/twitter.svg" alt="Twitter" />
         </a>
         <a href="">
