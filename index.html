@@ -12,6 +12,7 @@
     />
     <title>Picker Random Color</title>
     <link rel="stylesheet" href="./style.css" />
+    <script defer src="./main.js"></script>
   </head>
   <body>
     <main id="bgRandom">
@@ -20,13 +21,13 @@
           <h1>Random Color</h1>
         </div>
         <div class="numberHex">
-          <input type="text" id="newHex" value="#FBFAF0" />
+          <input type="text" id="newHex" value="FBFAF0" />
           <button id="search">🔍</button>
         </div>
         <button id="btnChange">PICK</button>
         <button id="saveColor">Guardar</button>
+        <div id="colorsSaved" style="display: none"></div>
       </section>
-      <section id="colorsSaved"></section>
     </main>
 
     <footer>
@@ -44,6 +45,5 @@
         </a>
       </div>
     </footer>
-    <script src="./main.js"></script>
   </body>
 </html>

@@ -9,6 +9,17 @@ let randomHex = "#FBFAF0";
 let colorLetter = "#000";
 const saveColors = [];
 
+function deletePos(value) {
+  if (!saveColors.includes(value)) return;
+  let indexVal = saveColors.indexOf(value);
+  saveColors.splice(indexVal, 1);
+
+  let deleteElement = document.querySelector(`[color='${value}']`);
+  deleteElement.remove();
+  if (saveColors.length < 1)
+    colorContainer.setAttribute("style", "display:none");
+}
+
 function randomColorHex() {
   const conjunto = "0123456789ABCDEF";
   let random = "#";
@@ -46,18 +57,31 @@ btnSearch.addEventListener("click", () => {
 
 btnSave.addEventListener("click", () => {
   let color = newHex.value;
-  colorLetter = colorContrast(color);
   if (!saveColors.includes(color)) {
-    if (randomHex !== color) paintColor(color);
+    paintColor(color);
     saveColors.push(color);
     colorContainer.innerHTML += `
-      <span style="
+      <div style="
       background-color:${color};
-      padding:3px 5px;
+      padding:3px 4px;
       border-radius: 6px;
-      color: ${colorLetter};">
-      ${color}
-      </span>`;
-    console.log(saveColors);
+      color: ${colorContrast(color)};"
+      color="${color}">
+        <span>
+          ${color}
+        </span>
+        <button style="
+        background: #ffffff88;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        padding: 0px 3px;
+        height: fit-content;
+        margin-left: 2px;
+        "
+        onclick="deletePos('${color}')"
+        >×</button>
+      </div>`;
   }
+  colorContainer.setAttribute("style", "display: flex");
 });
